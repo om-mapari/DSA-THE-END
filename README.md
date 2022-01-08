@@ -1,2 +1,2 @@
 # DSA-THE-END
-##### New repo original repo is got deleted
+##### New repo original repo got deleted
