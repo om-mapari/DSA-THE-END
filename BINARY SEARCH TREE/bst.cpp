@@ -25,10 +25,30 @@ void printvv(vector<vector<int>> &v);
 class Solution
 {
 public:
+    int c = -1;
     void answer(node* root){
         
-        
+        int x = 4;
 
+        solve(root,x);
+        cout<<"ceil "<<c<<endl;
+    }
+
+    bool solve(node* root,int x)
+    {
+        if(!root) return false;
+
+        if(root->val>x){
+            c = root->val;
+            return solve(root->left,x);
+        }
+        else if(root->val<x)
+        {
+            return solve(root->right,x);
+        }
+        else{
+            return true;
+        }
     }
 
 
@@ -63,12 +83,13 @@ int main()
 {
 
     node *root = new node(8);
-    root->left = new node(4);
-    root->right = new node(12);
+    root->left = new node(5);
+    root->right = new node(10);
     root->left->left = new node(2);
     root->left->right = new node(6);
-    root->right->left = new node(10);
-    root->right->right = new node(14);
+    root->left->right->left = new node(7);
+    // root->right->left = new node(10);
+    // root->right->right = new node(14);
 /*            8
             /   \    
           4      12

@@ -48,6 +48,7 @@ public:
         root_to_leaf_path_sum(root,7,0,isSumEqual);
         cout<<"Root to leaf path sum " << (isSumEqual? "{exist}" : "{not exist}")<<endl;
         cout<<"Optimized Version "<<root_to_leaf_path_sum_2(root,7,0); //* Importnent to know
+        //* do [given_sum - root->val] at every node insted of passing 3 para
 
         // Question 3
         int sum = 0;
@@ -84,7 +85,7 @@ public:
     {
         if(!root) return ;
         curr_sum += root->val;
-          cout<<"running"<<endl;
+        cout<<"running"<<endl;
         if(!root->left && !root->right) {
             if(sum==curr_sum) isSumEqual = true;
         }
@@ -98,7 +99,6 @@ public:
         cout<<"running2"<<endl;
         if(!root->left && !root->right) {
             if(sum==curr_sum) return true;
-       
         }
         return root_to_leaf_path_sum_2(root->left,sum,curr_sum) ||
         root_to_leaf_path_sum_2(root->right,sum,curr_sum);
